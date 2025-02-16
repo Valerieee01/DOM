@@ -62,11 +62,42 @@ documento.innerText = "¿Qué es DOM?"; // Modifica el contenido de texto del el
 // console.log(padre.previousSibling); // Imprime el nodo anterior al <ul> (puede ser un nodo de texto o un elemento).
 // console.log(padre.previousElementSibling); // Imprime el elemento hermano anterior al <ul> (excluye nodos de texto).
 
-console.log(padre.parentNode);  // Muestra el nodo padre del elemento "padre", que puede ser un elemento, documento o nodo raíz.
-console.log(padre.parentElement);  // Muestra el elemento padre de "padre", pero si su padre no es un elemento (por ejemplo, es un nodo de documento), devolverá null.
+// console.log(padre.parentNode);  // Muestra el nodo padre del elemento "padre", que puede ser un elemento, documento o nodo raíz.
+// console.log(padre.parentElement);  // Muestra el elemento padre de "padre", pero si su padre no es un elemento (por ejemplo, es un nodo de documento), devolverá null.
+// const $card = dom.querySelector('.card')  
+// Se selecciona el primer elemento del DOM que tenga la clase 'card' y se almacena en la variable $card.
 
+// console.log($card.classList.contains('card'));  
+// Se verifica si el elemento seleccionado tiene la clase 'card' y el resultado (true o false) se imprime en la consola.
 
+// $card.classList.add('bg-dark')  
+// Se añade la clase 'bg-dark' al elemento seleccionado.
 
+// $card.classList.remove('card')  
+// Se elimina la clase 'card' del elemento seleccionado.
 
+// $card.classList.toggle('card')  
+// Se alterna la presencia de la clase 'card': si el elemento la tiene, se la quita; si no la tiene, se la agrega.
 
+let texto = `Los <b>elementos</b> son los componentes de una página y los <b>Selectores</b> 
+                son las reglas que indican qué elementos se van a aplicar`;
+// Se define una variable llamada `texto` con una cadena de texto que incluye etiquetas `<b>` para negrita.
 
+const elementos = dom.querySelector('#elementos')
+// Se selecciona el elemento del DOM con el id 'elementos' y se almacena en la variable `elementos`.
+
+elementos.textContent = texto;
+// Se asigna el contenido de `texto` al elemento seleccionado, pero interpretándolo como texto plano 
+// (las etiquetas HTML se mostrarán como texto en la página).
+
+elementos.innerHTML = texto;
+// Se asigna el contenido de `texto` al elemento seleccionado, pero interpretándolo como HTML 
+// (las etiquetas `<b>` se renderizarán correctamente en negrita).
+
+// console.log(elementos);
+// Se imprime en la consola el elemento seleccionado para verificar sus propiedades y contenido.
+body.style.background = '#000';
+
+setTimeout(() => {
+    body.style.background = '';
+}, 6000);

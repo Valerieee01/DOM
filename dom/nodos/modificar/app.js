@@ -74,8 +74,8 @@ $cards.insertAdjacentElement('beforeend', $card); // Inserta un los elemntos cre
    const element = array[i]; 
    console.log(element);
    if (i % 2 === 0) {
-     element.querySelector('a').style.backgroundColor = 'white';
+     element.querySelector('a').classList.toggle('bg-error');
    } else {
-    element.querySelector('a').style.backgroundColor = 'red';
+    element.querySelector('a').classList.toggle('bg-white');
    }
  }

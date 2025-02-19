@@ -143,9 +143,13 @@ section {
   color: var(--heavyMetal);
 }
 
-.button__text {
+.bg-error {
+  background-color: red;
 }
 
+.bg-white {
+  background-color: white;
+}
 .button__icon {
   font-size: 1.4rem;
 }

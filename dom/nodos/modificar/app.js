@@ -53,4 +53,29 @@ $card.append($card_header, $card_body);  // Se agrega el encabezado y el cuerpo 
 
 // Finalmente, se agrega la tarjeta completa al contenedor que se obtuvo al principio.
 //$cards.append($card);  // Se agrega la tarjeta al contenedor con id 'cards'.
-$cards.insertAdjacentElement('beforeend', $card)
+
+// const children = $cards.childNodes; // Se accede a los hijos de las cards
+// console.log(children); // Muestra los hijos de las cards
+// const array = [...$cards.children]; 
+
+// array.forEach((element, posicion) => { // Se aplica el metodo array.form() el cual tranforma el objeto para volverlo iterable
+//   if(posicion % 2 === 0) { // Se aplica la condición de si es par o impar
+//      element.style.backgroundColor = 'white'; // si se cumple la condición se modifica el bacgrouncolor
+//      console.log(element); // Imprime en la consola los elementos que cumplan esa funcion
+//    }
+//  });
+
+
+$cards.insertAdjacentElement('beforeend', $card); // Inserta un los elemntos creados al contenedor inicial al que accedimos, en una posicion antes del final
+
+ const array = [...$cards.children]; 
+
+ for (let i = 0; i < array.length; i++) {
+   const element = array[i]; 
+   console.log(element);
+   if (i % 2 === 0) {
+     element.querySelector('a').style.backgroundColor = 'white';
+   } else {
+    element.querySelector('a').style.backgroundColor = 'red';
+   }
+ }

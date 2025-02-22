@@ -52,7 +52,7 @@ $card_body.append($card_img, $card_paragraph, $button);  // Se agrega la imagen,
 $card.append($card_header, $card_body);  // Se agrega el encabezado y el cuerpo a la tarjeta principal.
 
 // Finalmente, se agrega la tarjeta completa al contenedor que se obtuvo al principio.
-//$cards.append($card);  // Se agrega la tarjeta al contenedor con id 'cards'.
+$cards.append($card);  // Se agrega la tarjeta al contenedor con id 'cards'.
 
 // const children = $cards.childNodes; // Se accede a los hijos de las cards
 // console.log(children); // Muestra los hijos de las cards
@@ -68,14 +68,27 @@ $card.append($card_header, $card_body);  // Se agrega el encabezado y el cuerpo 
 
 $cards.insertAdjacentElement('beforeend', $card); // Inserta un los elemntos creados al contenedor inicial al que accedimos, en una posicion antes del final
 
- const array = [...$cards.children]; 
+ const array = [...$cards.children]; // sprit operator 
 
  for (let i = 0; i < array.length; i++) {
    const element = array[i]; 
-   console.log(element);
+   //console.log(element);
    if (i % 2 === 0) {
      element.querySelector('a').classList.toggle('bg-error');
    } else {
     element.querySelector('a').classList.toggle('bg-white');
    }
+
+   if (i === 4) {
+    element.classList.toggle('bg-white');
+    //element.remove();
+    $cards.removeChild(element);
+   }
+
  }
+
+ array.forEach(element => {
+   element.remove();
+ });
+
+ 

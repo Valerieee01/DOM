@@ -99,7 +99,9 @@ const validando =  (event) => {
     }else {
         alert('Datos no validos');
     }
-}
+} 
+//
+
 
 const contextmenu = () => {
     alert('?')

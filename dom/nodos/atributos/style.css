@@ -1,162 +1,191 @@
+/* Importa la fuente Montserrat desde Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* Reset de estilos para evitar diferencias entre navegadores */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Elimina los márgenes predeterminados */
+  padding: 0; /* Elimina el relleno predeterminado */
+  box-sizing: border-box; /* Asegura que el padding y border no afecten el tamaño del elemento */
 }
 
+/* Definición de variables CSS para reutilizar colores y medidas */
 :root {
-  --starship: #f0db4f;
-  --heavyMetal: #323330;
-  --drover: #fcecac;
-  --sycamore: #8c7c3c;
-  --white: #fff;
-  --max-width: 1400px;
-  --padding: 10px;
-  --margin: 10px;
+  --starship: #f0db4f; /* Amarillo principal */
+  --heavyMetal: #323330; /* Gris oscuro */
+  --drover: #fcecac; /* Amarillo claro */
+  --sycamore: #8c7c3c; /* Marrón */
+  --white: #fff; /* Blanco */
+  --max-width: 1400px; /* Ancho máximo del contenedor */
+  --padding: 10px; /* Espaciado interno base */
+  --margin: 10px; /* Margen base */
 }
 
+/* Cambia el fondo cuando el usuario selecciona texto */
 ::selection {
   background: var(--sycamore);
 }
 
+/* Estilos generales del body */
 body {
-  background: var(--heavyMetal);
-  color: var(--starship);
-  line-height: 24px;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  background: var(--heavyMetal); /* Fondo oscuro */
+  color: var(--starship); /* Texto amarillo */
+  line-height: 24px; /* Espaciado entre líneas */
+  font-size: 16px; /* Tamaño base del texto */
+  font-family: "Montserrat", sans-serif; /* Fuente personalizada */
+  height: 100vh;
 }
 
+/* Estilos para la cabecera */
 header {
-  text-align: center;
-  background: var(--heavyMetal);
-  color: var(--starship);
-  border-bottom: solid 1px var(--sycamore);
-  margin-bottom: var(--margin);
+  text-align: center; /* Centra el contenido */
+  background: var(--heavyMetal); /* Mantiene el fondo oscuro */
+  color: var(--starship); /* Texto amarillo */
+  border-bottom: solid 1px var(--sycamore); /* Línea de separación inferior */
+  margin-bottom: var(--margin); /* Margen inferior */
 }
 
+/* Espaciado dentro de las secciones */
 section {
   padding: var(--padding);
 }
 
+/* Estilos generales para enlaces */
 a {
-  color: var(--starship);
-  text-decoration: none;
+  color: var(--starship); /* Color amarillo */
+  text-decoration: none; /* Sin subrayado */
 }
 
+/* Espaciado para títulos */
 h1,
 h2 {
   padding: var(--padding);
 }
 
+/* Estilos para los párrafos */
 p {
-  font-size: 1rem;
-  margin: 0 0 var(--margin);
-  color: var(--white);
+  font-size: 1rem; /* Tamaño estándar */
+  margin: 0 0 var(--margin); /* Espaciado inferior */
+  color: var(--white); /* Color blanco */
 }
 
+/* Resalta la primera letra de los párrafos */
 p::first-letter {
-  font-size: 1.4rem;
-  color: var(--starship);
-  font-weight: bold;
+  font-size: 1.4rem; /* Aumenta el tamaño */
+  color: var(--starship); /* Amarillo */
+  font-weight: bold; /* Negrita */
 }
 
+/* Elimina los estilos predeterminados de las listas */
 ul {
   list-style: none;
 }
 
+/* Hace que los elementos de la lista sean interactivos */
 ul.list > li.item {
   cursor: pointer;
 }
 
+/* Cambia el color de los enlaces dentro de las listas al pasar el mouse */
 li.item:hover a {
   color: var(--heavyMetal);
 }
 
+/* Contenedor principal para centrar el contenido */
 .container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--padding);
+  max-width: var(--max-width); /* Establece un ancho máximo */
+  margin: 0 auto; /* Centra el contenedor */
+  padding: 0 var(--padding); /* Espaciado lateral */
 }
 
+/* Estilos de las tarjetas */
 .card {
-  width: 450px;
-  border: solid 1px var(--drover);
-  margin: var(--margin) auto;
+  width: 450px; /* Ancho fijo */
+  border: solid 1px var(--drover); /* Borde amarillo claro */
+  margin: var(--margin) auto; /* Margen y centrado */
 }
 
+/* Estilos de listas */
 .list {
-  text-align: center;
-  padding: var(--padding);
+  text-align: center; /* Centra los elementos */
+  padding: var(--padding); /* Espaciado interno */
 }
 
+/* Estilos de cada ítem de la lista */
 .item {
-  border-bottom: solid 1px var(--drover);
-  padding: var(--padding);
-  transition: 1s;
-  font-size: 1.2rem;
+  border-bottom: solid 1px var(--drover); /* Línea divisoria */
+  padding: var(--padding); /* Espaciado */
+  transition: 1s; /* Suaviza los cambios de estilo */
+  font-size: 1.2rem; /* Tamaño del texto */
 }
 
+/* Cambia el fondo y color al pasar el mouse sobre los ítems */
 .item:hover {
   background: var(--drover);
   color: var(--heavyMetal);
 }
 
+/* Estilos para enlaces visitados dentro de listas */
 ul.list > li.item a:visited {
   color: var(--sycamore);
 }
 
+/* Elimina el borde del último ítem de la lista */
 .item:last-child {
   border: none;
 }
 
+/* Clase para centrar contenido */
 .center {
   text-align: center;
 }
+
+/* Espaciado dentro del formulario */
 form {
   padding: var(--padding);
 }
 
+/* Estilos de los campos de entrada */
 input {
-  display: block;
-  width: 90%;
-  padding: calc(var(--padding) + 4px);
-  margin: var(--margin) auto;
-  border: solid 1px var(--heavyMetal);
-  border-radius: 4px;
-  outline: none;
-  font-size: 1rem;
-  color: var(--sycamore);
+  display: block; /* Hace que ocupen todo el ancho disponible */
+  width: 90%; /* Ancho relativo */
+  padding: calc(var(--padding) + 4px); /* Espaciado interno */
+  margin: var(--margin) auto; /* Margen y centrado */
+  border: solid 1px var(--heavyMetal); /* Borde gris oscuro */
+  border-radius: 4px; /* Bordes redondeados */
+  outline: none; /* Elimina el contorno predeterminado */
+  font-size: 1rem; /* Tamaño del texto */
+  color: var(--sycamore); /* Texto marrón */
 }
 
+/* Estilos de los botones */
 button {
-  display: block;
+  display: block; /* Ocupará todo el ancho disponible */
   width: 90%;
-  margin: var(--margin) auto;
+  margin: var(--margin) auto; /* Centrado */
   padding: var(--padding);
-  background: var(--heavyMetal);
-  color: var(--starship);
-  border: solid 1px var(--starship);
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: 1s;
+  background: var(--heavyMetal); /* Fondo oscuro */
+  color: var(--starship); /* Texto amarillo */
+  border: solid 1px var(--starship); /* Borde amarillo */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Muestra la mano al pasar el mouse */
+  font-size: 1.2rem; /* Tamaño del texto */
+  transition: 1s; /* Suaviza el cambio de estilos */
 }
 
+/* Cambia el color al pasar el mouse sobre los botones */
 button:hover {
   background: var(--starship);
   color: var(--heavyMetal);
 }
 
+/* Estilos de los botones con la clase .btn */
 .btn {
   display: block;
   width: 90%;
   margin: var(--margin) auto;
   padding: var(--padding);
-  background: var(--starship);
-  color: var(--heavyMetal);
+  background: var(--starship); /* Amarillo */
+  color: var(--heavyMetal); /* Texto oscuro */
   border: solid 1px var(--starship);
   border-radius: 4px;
   cursor: pointer;
@@ -165,6 +194,8 @@ button:hover {
   text-align: center;
   font-weight: 500;
 }
+
+/* Cambia el color del botón .btn al pasar el mouse */
 .btn:hover {
   background: var(--heavyMetal);
   color: var(--starship);

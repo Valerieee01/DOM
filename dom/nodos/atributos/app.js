@@ -42,10 +42,13 @@
 // // button.setAttribute('title', 'Ir al Login');
 // // form.append(button);
 // // // button.setAttribute('disabled', '');
-
-
-
 // bt_validar.addEventListener('click', validando);
+
+import { ciudades } from "./ciudades.js";
+import { generos } from "./generos.js";
+import { lenguajes } from "./lenguajes.js";
+
+
 const body = document.querySelector('body')
 const form = document.querySelector('#formulario');
 const nombre = document.querySelector('#nombre');
@@ -54,26 +57,50 @@ const telefono = document.querySelector('#telefono');
 const documento = document.querySelector('#documento');
 const usuario = document.querySelector('#usuario');
 const password = document.querySelector('#contrasena');
-const btn = document.querySelector('button');
-
 const sel_ciudades = document.createElement('select');
-const op_ciudades = document.createElement('opction');
+const terminosCheck = document.createElement('input');
+const labelTerminos = document.createElement('label');
+const label_Gender = document.createElement('h3');
+const btn = document.querySelector('button');
+const div_genero = document.createElement('div');
+const label_lenguajes = document.createElement('h3');
+const div_lenguajes = document.createElement('div');
+const op_city = document.createElement('option');
 
-sel_ciudades.appendChild(op_ciudades)
-form.append(sel_ciudades)
 
-const ciudades  = async () => {
-    const data = await fetch('data.json');
-    const ciudades = await data.json();
-    console.log(ciudades);
-    
-}
-let arrayCiudades = ciudades()
+terminosCheck.type = 'checkbox';
+terminosCheck.id = 'terminos'
+labelTerminos.textContent = 'Acepta los terminos y politicas de nuestra empresa';
+labelTerminos.classList.add('center');
+label_Gender.textContent = '¿Cual es tu genero?'
+label_lenguajes.textContent = '¿Que lenguajes deseas aprender?'
+op_city.textContent = 'Seleccione Ciudad';
 
-arrayCiudades.array.forEach(element => {
-    element.appendChild(op_ciudades)
-});
- 
+
+div_genero.setAttribute('class', 'div_margin');
+div_lenguajes.setAttribute('class', 'div_margin');
+
+
+btn.insertAdjacentElement('beforebegin', terminosCheck);
+btn.insertAdjacentElement('beforebegin', labelTerminos);
+
+
+div_genero.append(label_Gender);
+form.insertBefore(div_genero, terminosCheck);
+
+
+div_lenguajes.append(label_lenguajes);
+form.insertBefore(div_lenguajes, terminosCheck)
+
+
+form.insertAdjacentElement('afterbegin', sel_ciudades);
+sel_ciudades.append(op_city);
+
+
+ciudades(sel_ciudades);
+generos(div_genero);
+lenguajes(div_lenguajes);
+
 
 
 const validando =  (event) => {
@@ -100,8 +127,6 @@ const validando =  (event) => {
         alert('Datos no validos');
     }
 } 
-//
-
 
 const contextmenu = () => {
     alert('?')
@@ -119,14 +144,18 @@ const keydown = (event) => {
     console.log(`Presionaste una tecla ${event.key}`);
 }
 
-// btn.addEventListener('click', validando);
+const IsChecked = () =>{
+   (!terminosCheck.checked) ? btn.setAttribute('disabled', '') : btn.removeAttribute('disabled', '');
+} 
+
+
+btn.addEventListener('click', validando);
+terminosCheck.addEventListener('change', IsChecked);
 // btn.removeEventListener('click', validando)
 // body.addEventListener('contextmenu', contextmenu);
 // body.addEventListener('dblclick', dbleClick);
 // body.addEventListener('mousedown', mouseDown);
-body.addEventListener('keydown', keydown);
-
-// haremos un select
+// body.addEventListener('keydown', keydown);
 
 
 

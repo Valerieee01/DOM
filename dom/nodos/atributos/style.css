@@ -145,7 +145,7 @@ form {
 }
 
 /* Estilos de los campos de entrada */
-input {
+input, select {
   display: block; /* Hace que ocupen todo el ancho disponible */
   width: 90%; /* Ancho relativo */
   padding: calc(var(--padding) + 4px); /* Espaciado interno */
@@ -156,6 +156,7 @@ input {
   font-size: 1rem; /* Tamaño del texto */
   color: var(--sycamore); /* Texto marrón */
 }
+
 
 /* Estilos de los botones */
 button {
@@ -199,4 +200,17 @@ button:hover {
 .btn:hover {
   background: var(--heavyMetal);
   color: var(--starship);
+}
+
+div.genero  input, div.genero label{
+  align-items: center;
+  display: inline;
+  width: auto;
+}
+
+.div_margin {
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 20px;
 }

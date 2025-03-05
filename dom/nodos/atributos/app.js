@@ -47,6 +47,8 @@
 import { ciudades } from "./ciudades.js";
 import { generos } from "./generos.js";
 import { lenguajes } from "./lenguajes.js";
+import { validando } from "./validaciones.js";
+
 
 
 const body = document.querySelector('body')
@@ -101,33 +103,7 @@ ciudades(sel_ciudades);
 generos(div_genero);
 lenguajes(div_lenguajes);
 
-
-
-const validando =  (event) => {
-    event.preventDefault();
-    if (nombre.value === '') {
-        alert('El nombre es obligatorio');
-        nombre.focus();
-    }if (apellido.value === '') {
-        alert('El apellido es obligatorio');
-        apellido.focus();
-    }if (telefono.value === '') {
-        alert('El telefono es obligatorio');
-        telefono.focus();
-    }if (documento.value === '') {
-        alert('El documento es obligatorio');
-        documento.focus();
-    }if (usuario.value === '') {
-        alert('El usuario es obligatorio');
-        usuario.focus();
-    }if (contrasena.value === '') {
-        alert('El contraseña es obligatorio');
-        contrasena.focus();
-    }else {
-        alert('Datos no validos');
-    }
-} 
-
+btn.addEventListener("click", (event) => validando(event, "#formulario"));
 const contextmenu = () => {
     alert('?')
 }
@@ -145,7 +121,7 @@ const keydown = (event) => {
 }
 
 const IsChecked = () =>{
-   (!terminosCheck.checked) ? btn.setAttribute('disabled', '') : btn.removeAttribute('disabled', '');
+    (!terminosCheck.checked) ? btn.setAttribute('disabled', '') : btn.removeAttribute('disabled', '');
 } 
 
 

@@ -202,7 +202,7 @@ button:hover {
   color: var(--starship);
 }
 
-div.genero  input, div.genero label{
+div.genero  input, div.genero label, div.lenguaje input{
   align-items: center;
   display: inline;
   width: auto;

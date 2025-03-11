@@ -17,14 +17,13 @@ export const validando = (event, formularioId) => {
     const sel_ciudades = form.querySelector('select'); // Seleccionar el campo de ciudad
 
     // Definir expresiones regulares para validación
-    const validaciones = {
-        nombre: /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{2,50}$/, // Solo letras y de 2 a 50 caracteres
-        apellido: /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{2,50}$/,
-        telefono: /^[0-9]{7,15}$/, // Solo números, mínimo 7 y máximo 15
-        documento: /^[0-9]{5,20}$/,
-        usuario: /^[a-zA-Z0-9_]{3,20}$/, // Letras, números y guion bajo, de 3 a 20 caracteres
-        password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,16}$/ // 8-16 caracteres, al menos una mayúscula, una minúscula y un número
-    };
+    const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{2,50}$/; 
+    const regexApellido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{2,50}$/; 
+    const regexTelefono = /^[0-9]{7,15}$/; 
+    const regexDocumento = /^[0-9]{5,20}$/; 
+    const regexUsuario = /^[a-zA-Z0-9_]{3,20}$/; 
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,16}$/; 
+
 
     // Función para validar un campo con su regex
     const validarCampo = (campo, regex, mensaje) => {
@@ -36,14 +35,15 @@ export const validando = (event, formularioId) => {
         return true;
     };
 
-    // Validaciones con la función genérica
-    if (!validarCampo(nombre, validaciones.nombre, 'Nombre inválido')) return;
-    if (!validarCampo(apellido, validaciones.apellido, 'Apellido inválido')) return;
-    if (!validarCampo(telefono, validaciones.telefono, 'Teléfono inválido')) return;
-    if (!validarCampo(documento, validaciones.documento, 'Documento inválido')) return;
-    if (!validarCampo(usuario, validaciones.usuario, 'Usuario inválido')) return;
-    if (!validarCampo(password, validaciones.password, 'Contraseña inválida (Debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número)')) return;
+    // Validaciones
+    if (!validarCampo(nombre, regexNombre, 'Nombre inválido')) return;
+    if (!validarCampo(apellido, regexApellido, 'Apellido inválido')) return;
+    if (!validarCampo(telefono, regexTelefono, 'Teléfono inválido')) return;
+    if (!validarCampo(documento, regexDocumento, 'Documento inválido')) return;
+    if (!validarCampo(usuario, regexUsuario, 'Usuario inválido')) return;
+    if (!validarCampo(password, regexPassword, 'Contraseña inválida (Debe tener entre 8 y 16 caracteres, al menos una mayúscula, una minúscula y un número)')) return;
 
+    
     // Validación de selección de ciudad
     if (!sel_ciudades || sel_ciudades.value === '') {
         alert('Debes seleccionar una ciudad');

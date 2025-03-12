@@ -214,3 +214,6 @@ div.genero  input, div.genero label, div.lenguaje input{
   width: 90%;
   margin: 20px;
 }
+.error {
+  border: 1px solid  red;
+}

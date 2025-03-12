@@ -47,7 +47,9 @@
 import { ciudades } from "./ciudades.js";
 import { generos } from "./generos.js";
 import { lenguajes } from "./lenguajes.js";
-import { validando } from "./validaciones.js";
+//import { validando } from "./validaciones.js";
+import { is_valid } from "./is_valid.js";
+
 
 
 
@@ -69,6 +71,7 @@ const label_lenguajes = document.createElement('h3');
 const div_lenguajes = document.createElement('div');
 const op_city = document.createElement('option');
 
+sel_ciudades.setAttribute('data-required', 'true');
 
 terminosCheck.type = 'checkbox';
 terminosCheck.id = 'terminos'
@@ -103,7 +106,7 @@ ciudades(sel_ciudades);
 generos(div_genero);
 lenguajes(div_lenguajes);
 
-btn.addEventListener("click", (event) => validando(event, "#formulario"));
+//btn.addEventListener("click", (event) => validando(event, "#formulario"));
 const contextmenu = () => {
     alert('?')
 }
@@ -124,8 +127,9 @@ const IsChecked = () =>{
     (!terminosCheck.checked) ? btn.setAttribute('disabled', '') : btn.removeAttribute('disabled', '');
 } 
 
+btn.addEventListener("click", (event) => is_valid(event, "#formulario"));
 
-btn.addEventListener('click', validando);
+//btn.addEventListener('click', validando);
 terminosCheck.addEventListener('change', IsChecked);
 // btn.removeEventListener('click', validando)
 // body.addEventListener('contextmenu', contextmenu);
